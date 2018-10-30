@@ -1,0 +1,3 @@
+Trebel-Job-Management-System
+python-dotenv>=0.8.1
+redis>=2.10.6

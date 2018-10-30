@@ -3,16 +3,19 @@ from celery import Celery
 from dotenv import load_dotenv
 load_dotenv()
 from os import getenv
+import sys
 
-app = Celery('job-management-system',
+sys.path.append('../')
+app = Celery('tasks',
              broker=getenv("broker_connection"),
              backend=getenv("backend_connection"),
-             include=['tasks'])
+             include=['system.math'])
 
 
 app.conf.update(
     result_expires=3600,
 )
+
 
 if __name__ == '__main__':
     app.start()
