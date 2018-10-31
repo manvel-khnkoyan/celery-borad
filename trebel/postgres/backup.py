@@ -1,20 +1,21 @@
-
-
 import os
 import sys
 import subprocess
 from datetime import *
+from dotenv import load_dotenv
+load_dotenv()
+from os import getenv
 
-DB_USER = 'mnm'
-DB_NAME = 'reports'
-PASS = 'fg4d_a9n0dw'
-HOST = '52.173.81.58'
-PORT = '5432'
+DB_USER = getenv("PG_DB_USER")
+DB_NAME = getenv("PG_DB_NAME")
+PASS = getenv("PG_PASS")
+HOST = getenv("PG_HOST")
+PORT = getenv("PG_PORT")
 
-TEMP_BACKUP_PATH = r'/mnt/storage/backups/reports/'
-BACKUP_PATH = r''
+TEMP_BACKUP_PATH = getenv("PG_TEMP_BACKUP_PATH")
+BACKUP_PATH = getenv("PG_BACKUP_PATH")
 
-def main():
+def trable_postgres_backup():
 
     try:
         db_table_name = sys.argv[1]
@@ -37,7 +38,4 @@ def main():
 
     for line in output.splitlines():
         print(line)
-
-if __name__ == '__main__':
-    main()
 
