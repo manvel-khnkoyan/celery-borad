@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  
+  celery:
+    build: .
+    command: celery -A settings --workdir=./tasks  worker -l info
+    volumes:
+      - .:/code
+     
+  celery-beat:
+    build: .
+    command: celery -A settings --workdir=./tasks beat -l info
+    volumes:
+      - .:/code
+  
