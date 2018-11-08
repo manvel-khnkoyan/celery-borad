@@ -10,7 +10,7 @@ sys.path.append('../')
 app = Celery('tasks',
              broker=getenv("broker_connection"),
              backend=getenv("backend_connection"),
-             include=['system.math','postgres.backup'])
+             include=['math_tasks','postgres_tasks'])
 
 
 app.conf.update(
@@ -19,9 +19,9 @@ app.conf.update(
 
 app.conf.beat_schedule = {
     'postgres-backup-every-day': {
-        'task': 'postgres.backup.postgres_backup',
-        'schedule': crontab(day_of_week = crontab_parser(7).parse('*'))
-    },
+        'task': 'postgres_tasks.postgres_backup',
+        'schedule': crontab(hour=7, minute=30, day_of_week = '*')
+    }
 }
 app.conf.timezone = 'UTC'
 

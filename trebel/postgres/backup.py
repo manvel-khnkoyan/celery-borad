@@ -15,11 +15,11 @@ PORT = getenv("PG_PORT")
 TEMP_BACKUP_PATH = getenv("PG_TEMP_BACKUP_PATH")
 BACKUP_PATH = getenv("PG_BACKUP_PATH")
 
-def trable_postgres_backup():
+def trable_postgres_backup(arg):
 
-    try:
-        db_table_name = sys.argv[1]
-    except:
+    if arg:
+        db_table_name = arg
+    else:
         yesterday = datetime.now() - timedelta(days=1)
         day = '%02d' % yesterday.day
         month = '%02d' % yesterday.month
