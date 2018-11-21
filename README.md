@@ -11,6 +11,22 @@ celery -A settings --workdir=./tasks  worker -l info
 ``` sudo docker-compose up ```
 
 
+### How to build and run single docker image/container
+
+Building Image: 
+``` sudo docker build -t celery-image . ```
+
+Run Container:
+``` sudo docker run celery-image ```
+
+Run Container With Keep STDIN TTY (keeping terminal):
+
+``` sudo docker run -it celery-image ```
+
+Run Bash:
+``` sudo docker run -it CONTAINER_ID /bin/bash ```
+
+
 ### How to test using terminal
 
 ``` 
