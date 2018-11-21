@@ -7,10 +7,14 @@ from os import getenv
 import sys
 
 sys.path.append('../')
+
 app = Celery('tasks',
-             broker=getenv("broker_connection"),
-             backend=getenv("backend_connection"),
-             include=['math_tasks','postgres_tasks'])
+        broker=getenv("broker_connection"),
+        backend=getenv("backend_connection"),
+        include=[
+            'tasks.math',
+            'tasks.postgres'
+        ])
 
 
 app.conf.update(
