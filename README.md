@@ -18,10 +18,32 @@ Building Image:
 
 Run Container With Keep STDIN TTY (keeping terminal):
 
-``` sudo docker run -it celery-image ```
+``` sudo docker run -it --network=host celery-image ```
 
 Run Bash:
 ``` sudo docker run -it celery-image /bin/bash ```
+
+
+### How To run Redis locally
+
+Redis docker:
+
+``` sudo docker run --name=redis-server -p 6379:6379 -d redis```
+
+
+### How To Set up Celery-Flower 
+
+```celery -A settings flower --port=5555```
+
+
+### Run Celery locally 
+
+``` sudo docker run -it --network=host celery-image /bin/bash ```
+
+then:
+
+``` celery -A settings --workdir=./tasks  worker & ```
+
 
 
 ### How to test using terminal

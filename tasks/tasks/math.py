@@ -17,3 +17,10 @@ def system_math_mul(x, y):
 @app.task
 def system_math_xsum(numbers):
     return xsum(numbers)
+
+
+@app.task
+def system_add_log(str):
+    f = open("/tmp/celery.txt", "a")
+    f.write(str)
+    return str
