@@ -1,5 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 
+from time import sleep
 from settings import app
 from trebel.system.math import *
 
@@ -21,6 +22,7 @@ def system_math_xsum(numbers):
 
 @app.task
 def system_add_log(str):
+    sleep(50)
     f = open("/tmp/celery.txt", "a")
     f.write(str)
     return str

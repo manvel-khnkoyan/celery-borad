@@ -9,8 +9,11 @@ import sys
 sys.path.append('../')
 
 app = Celery('tasks',
-        broker=getenv("broker_connection"),
-        backend=getenv("backend_connection"),
+        broker=getenv("rabbitmq_broker"),
+        backend=getenv("rabbitmq_backend"),
+
+        # broker=getenv("redis_broker"),
+        # backend=getenv("redis_backend"),
         include=[
             'tasks.math',
             'tasks.postgres'

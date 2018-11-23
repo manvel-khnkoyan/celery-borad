@@ -30,6 +30,12 @@ Redis docker:
 
 ``` sudo docker run --name=redis-server -p 6379:6379 -d redis```
 
+### How To run RabbitMQ locally
+
+RabbitMQ docker:
+
+``` sudo docker run -d --name rabbitmq-server -e RABBITMQ_DEFAULT_VHOST=celery -e RABBITMQ_DEFAULT_USER=demo -e RABBITMQ_DEFAULT_PASS=demo -p 5672:5672 rabbitmq:latest ```
+
 
 ### How To Set up Celery-Flower 
 
