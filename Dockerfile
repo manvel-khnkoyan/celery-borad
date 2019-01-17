@@ -13,11 +13,6 @@ WORKDIR /code/
 
 RUN apt-get update
 
-
-RUN apt-get  install -y nodejs
-
-RUN apt-get install -y build-essential
-
 RUN apt-get  install -y npm
 RUN npm install -g --no-optional pm2
 
