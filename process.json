@@ -1,0 +1,9 @@
+{
+  "apps" : [
+    {
+      "name" : "file",
+      "script" : "./app.py --interpreter python3"
+    }
+  ]
+}
+
