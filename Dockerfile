@@ -21,7 +21,7 @@ WORKDIR  /home/hovo/python-files/job-management-system/
 COPY process.json /home/hovo/python-files/job-management-system
 
 CMD ["pm2-runtime", "process.json"]
- 
+
 EXPOSE 8000
 
 
