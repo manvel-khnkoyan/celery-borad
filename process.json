@@ -2,7 +2,10 @@
   "apps" : [
     {
       "name" : "file",
-      "script" : "./app.py --interpreter python3"
+      "script" : "./app.py",
+      "interpreter": "/usr/bin/python3",
+      "exec_mode": "fork_mode"
+
     }
   ]
 }
