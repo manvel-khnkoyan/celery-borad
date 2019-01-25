@@ -1,5 +1,5 @@
 .idea/
 .env
 __pycache__/
-celerybeat-schedule
+celerybeat-schedule.db
 celerybeat.pid
