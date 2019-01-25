@@ -6,12 +6,11 @@ load_dotenv()
 from os import getenv
 import sys
 
-sys.path.append('../')
+# sys.path.append('../')
 
 app = Celery('tasks',
         broker=getenv("rabbitmq_broker"),
         backend=getenv("rabbitmq_backend"),
-
         # broker=getenv("redis_broker"),
         # backend=getenv("redis_backend"),
         include=[

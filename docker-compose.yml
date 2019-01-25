@@ -5,14 +5,20 @@ services:
   celery:
     network_mode: host
     build: .
-    command: celery -A settings --workdir=./tasks  worker -l info
+    command: celery -A celery_app --workdir=./ worker -l info
     volumes:
       - .:/code
      
   celery-beat:
     network_mode: host
     build: .
-    command: celery -A settings --workdir=./tasks beat -l info
+    command: celery -A celery_app --workdir=./ beat -l info
     volumes:
       - .:/code
-  
+
+  pm2:
+    network_mode: host
+    build: .
+    command: pm2-runtime process.json
+    volumes:
+      - .:/code

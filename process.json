@@ -2,10 +2,9 @@
   "apps" : [
     {
       "name" : "file",
-      "script" : "./app.py",
+      "script" : "./events/consumer.py",
       "interpreter": "/usr/bin/python3",
       "exec_mode": "fork_mode"
-
     }
   ]
 }
